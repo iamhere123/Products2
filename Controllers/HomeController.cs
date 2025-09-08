@@ -16,7 +16,6 @@ public class HomeController : Controller
                 p.ProductName.Contains(searchString) ||
                 p.Category.CategoryName.Contains(searchString));
         }
-
         return View(products.ToList());
     }
 }
