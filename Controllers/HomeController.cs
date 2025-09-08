@@ -10,7 +10,6 @@ public class HomeController : Controller
     {
         var products = db.Products.Include("Category").AsQueryable();
 
-        // If search string is not empty, filter
         if (!string.IsNullOrEmpty(searchString))
         {
             products = products.Where(p =>
@@ -18,7 +17,6 @@ public class HomeController : Controller
                 p.Category.CategoryName.Contains(searchString));
         }
 
-        // Execute query
         return View(products.ToList());
     }
 }
